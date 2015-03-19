@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+		<title>XenixStudio Mobile Design Guide</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/fonts.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="(640_1136)_02_artist_00_list.json"></script>		
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="js/xps_html_guide.js"></script>
+		<script type="text/javascript">
+			var guidHtml = new GuidHtml();
+
+			$( document ).ready(function() {
+
+				$('.full_h').css({height:$(window).height()});
+				$('.c_content.full_h').css({height:$(window).height() - 85});
+				$('.l_content .full_h').css({height:$(window).height() - 285});
+				$('.r_content .full_h').css({height:$(window).height() - 130});
+				$('#screen,l_content').css({height:$('img.bg_screen').height()});
+
+				$(window).resize(function() {
+					$('.full_h').css({height:$(window).height()});
+					$('.c_content.full_h').css({height:$(window).height() - 85});
+					$('.l_content .full_h').css({height:$(window).height() - 285});
+					$('.r_content .full_h').css({height:$(window).height() - 130});
+					$('#screen,l_content').css({height:$('img.bg_screen').height()});
+				});
+
+				guidHtml.init($(".bg_screen").width(), $(".bg_screen").height());
+
+				$('div.layer_box ul li').find('div').siblings('p').prepend('<button></button>');
+
+				$('div.layer_box ul li p button').click(function(){
+					$(this).toggleClass('active').parent().toggleClass('active').next('div').stop().slideToggle(200);
+				});
+				$('div.layer_box ul li p').click(function(){
+					$('div.layer_box ul li p').removeClass('select');
+					$(this).addClass('select');
+
+					guidHtml.selectLayer($("p[name='" + $(this).parent().attr("name") + "']"));
+				});
+
+				$('div.layer_tab > ul > li').click(function(){
+					$('div.layer_tab > ul > li').removeClass('active');
+					$(this).addClass('active');
+				});
+
+				$(window).resize(function(){
+					guidHtml.resizeScreen($(".bg_screen").width(), $(".bg_screen").height());
+				});
+
+				$(document.body).keydown(function(event){
+					if ( event.which == 27 ) { // esc key down 
+						event.preventDefault();
+						guidHtml.hideGuideRuler();
+
+						$('div.layer_box ul li p').removeClass('select');
+					}
+				});
+			});
+
+			GuidHtml.prototype.guideLayerClick = function(e) {
+				e.preventDefault();
+
+				guidHtml.selectLayer($(this));
+				guidHtml.findAndSelectLayer($(this).attr("name"));
+
+				return false;
+			};
+
+			GuidHtml.prototype.onSelectLayer = function(layerObj) {
+				var layer = guidHtml.getLayerByElement(layerObj);
+				
+				// set preview
+				$("#info_img").attr("src", layer.preview);
+				
+				// set x, y, width, height
+				$('#x').text(layer.x);
+				$('#y').text(layer.y);
+				$('#width').text(this.calc(layer.width));
+				$('#height').text(this.calc(layer.height));
+				
+				// set name
+				$('.info_name').text(layer.name);
+			};
+
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="header">
+				<h1>PS Helper</h1>
+				<div class="more_con">
+					<p><button>more</button></p>
+				</div>
+			</div>
+
+			<div class="l_content">
+				<div class="fixed_wrap">
+					<div class="info_wrap">
+						<div class="info_nav_wrap">
+							<div class="info_nav">
+								<div class="info_img"><img src="screen.png" alt="" id="info_img" /></div>
+							</div>
+						</div>
+						<div class="info_text_wrap full_h scrollbar">
+							<div class="info_text cell1">
+								<div>
+									<p><span>Name</span>:<span class="info_name">corver_image_shadows_dows_rver_im.png</span></p>
+								</div> 
+							</div>
+							<div class="info_text">
+								<ul class="bd_none">
+									<li>
+										<p><span>X</span>:<span id="x">290</span></p>
+									</li>
+									<li>
+										<p><span>Y</span>:<span id="y">290</span></p>
+									</li>
+								</ul>
+								<ul>
+									<li>
+										<p><span>W</span>:<span id="width">1020</span></p>
+									</li>
+									<li>
+										<p><span>H</span>:<span id="height">582</span></p>
+									</li>
+								</ul>
+								<!-- <p><span>Opacity</span>:<span id="opacity">100%</span></p> -->
+							</div>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="c_content full_h scrollbar">
+				<div class="screen" id="screen">
+					<div class="ruler_wrap">
+						<div class="mask"></div>
+						<p class="ruler top"><span>160px</span></p>
+						<p class="ruler right"><span>180px</span></p>
+						<p class="ruler bottom"><span>100px</span></p>
+						<p class="ruler left"><span>180px</span></p>
+						<p class="guide" id="guide"></p>
+						<div class="comment top">
+							<p>comment....</p>
+						</div>
+					</div>
+					<img class="bg_screen" src="screen.png" alt="" />
+				</div>
+			</div>
+
+			<div class="r_content">
+				<div class="fixed_wrap">
+					<div class="layer_tab">
+							<ul>
+								<li class="btn_all active"><button>all</button></li>
+								<li class="btn_group"><button>group</button></li>
+								<li class="btn_images"><button>images</button></li>
+								<li class="btn_text"><button>text</button></li>
+								<li class="btn_bg"><button>backgroud</button></li>
+							</ul>
+						</div>
+					<div class="layer_wrap full_h scrollbar">
+						
+						<div class="layer_box">
+
+
+						<!--  각 리스트앞에 붙는 아이콘은 해당 클래스를 넣으면 자동으로 붙어요 ! 이 부분은 임시로 만들었기 때문에 지우셔야 해용 ~ !  -->
+						<ul>
+							<li>
+								<p class="ic_group">group</p>
+								<div></div>
+							</li>
+							<li>
+								<p class="ic_images">images<span class="ic_comment"></span></p> <!-- <span class="ic_comment"></span> 를 해당 p태그 안에 추가하면 코멘트 아이콘이 달려요 ~ -->
+								<div></div>
+							</li>
+							<li>
+								<p class="ic_text">text</p>
+								<div></div>
+							</li>
+							<li>
+								<p class="ic_bg">bg</p>
+								<div></div>
+							</li>
+						</ul>
+						<!--  end !!!  -->
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer">
+				<p class="file_title">
+					<span>Ios / 4.0 Inch / 02_artist_01_detail</span>
+				</p>
+
+				<h2>Xenix studio</h2>
+			</div>
+		</div>
+	</body>
+</html>

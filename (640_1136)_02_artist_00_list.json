@@ -1,0 +1,364 @@
+var layers = {
+	"document" : {
+		"description" : "test description",
+		"platform" : "ios",
+		"screen_size" : "4inch",
+		"dpi" : 326,
+		"scale" : 2
+	},
+	"screen": {
+		"name": "02_artist_list",
+		"type": 2,
+		"x": 0,
+		"y": 0,
+		"width": 640,
+		"height": 1136,
+		"preview": "screen.png"
+	},
+	"layers": [
+		{
+			"name": "navigation",
+			"type": 3,
+			"x": 2,
+			"y": 40,
+			"width": 638,
+			"height": 98,
+			"preview": "preview/navigation",
+			"layers": [
+				{
+					"name": "btn_ck",
+					"type": 5,
+					"x": 544,
+					"y": 40,
+					"width": 96,
+					"height": 98,
+					"preview": "preview/btn_ck",
+					"image": "btn_ck_n.png",
+					"pressImage": "btn_ck_p.png"
+				},
+				{
+					"name": "btn_back",
+					"type": 5,
+					"x": 2,
+					"y": 40,
+					"width": 98,
+					"height": 98,
+					"preview": "preview/btn_back",
+					"image": "btn_back_n.png",
+					"pressImage": "btn_back_p.png"
+				}
+			]
+		},
+		{
+			"name": "header",
+			"type": 3,
+			"x": 0,
+			"y": 0,
+			"width": 640,
+			"height": 702,
+			"preview": "preview/header",
+			"layers": [
+				{
+					"name": "title_text",
+					"type": 4,
+					"x": 156,
+					"y": 526,
+					"width": 331,
+					"height": 78,
+					"textStyle": {
+						"fontName": "MyriadPro-Regular",
+						"fontColor": {
+							"r": 255,
+							"g": 255,
+							"b": 255,
+							"opacity": 100,
+							"hex": "#ffffff"
+						},
+						"fontSize": 54
+					},
+					"preview": "preview/title_text"
+				},
+				{
+					"name": "count_text",
+					"type": 4,
+					"x": 201,
+					"y": 610,
+					"width": 236,
+					"height": 38,
+					"textStyle": {
+						"fontName": "MyriadPro-Regular",
+						"fontColor": {
+							"r": 129.999004304409,
+							"g": 129.999004304409,
+							"b": 129.999004304409,
+							"opacity": 100,
+							"hex": "#818181"
+						},
+						"fontSize": 30
+					},
+					"preview": "preview/count_text"
+				},
+				{
+					"name": "title_photo",
+					"type": 3,
+					"x": 0,
+					"y": 159,
+					"width": 640,
+					"height": 290,
+					"preview": "preview/title_photo",
+					"layers": [
+						{
+							"name": "btn_play",
+							"type": 5,
+							"x": 440,
+							"y": 360,
+							"width": 80,
+							"height": 80,
+							"preview": "preview/btn_play",
+							"image": "btn_play_n.png",
+							"pressImage": "btn_play_p.png"
+						},
+						{
+							"name": "btn_random",
+							"type": 5,
+							"x": 120,
+							"y": 360,
+							"width": 80,
+							"height": 80,
+							"preview": "preview/btn_random",
+							"image": "btn_random_n.png",
+							"pressImage": "btn_random_p.png"
+						},
+						{
+							"name": "photo_artist_default",
+							"type": 5,
+							"x": 175,
+							"y": 159,
+							"width": 290,
+							"height": 290,
+							"preview": "preview/photo_artist_default",
+							"image": "photo_artist_default.png"
+						}
+					]
+				},
+				{
+					"name": "album_corver",
+					"type": 3,
+					"x": 0,
+					"y": 0,
+					"width": 640,
+					"height": 682,
+					"preview": "preview/album_corver",
+					"layers": [
+						{
+							"name": "image_shadow",
+							"type": 3,
+							"x": 0,
+							"y": 99,
+							"width": 640,
+							"height": 583,
+							"preview": "preview/image_shadow"
+						},
+						{
+							"name": "album_image",
+							"type": 3,
+							"x": 0,
+							"y": 0,
+							"width": 640,
+							"height": 642,
+							"preview": "preview/album_image"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "list",
+			"type": 3,
+			"x": 0,
+			"y": 703,
+			"width": 640,
+			"height": 433,
+			"preview": "preview/list",
+			"layers": [
+				{
+					"name": "list_line.png",
+					"type": 3,
+					"x": 0,
+					"y": 703,
+					"width": 640,
+					"height": 50,
+					"preview": "preview/list_line.png"
+				},
+				{
+					"name": "list_2",
+					"type": 3,
+					"x": 1,
+					"y": 896,
+					"width": 639,
+					"height": 120,
+					"backgroundColor": {
+						"defaultColor": {
+							"r": 31.9468693435192,
+							"g": 32.9712373763323,
+							"b": 34.0430496633053,
+							"opacity": 100,
+							"hex": "#1f2022"
+						}
+					},
+					"preview": "preview/list_2",
+					"layers": [
+						{
+							"name": "song_title",
+							"type": 4,
+							"x": 130,
+							"y": 919,
+							"width": 480,
+							"height": 40,
+							"textStyle": {
+								"fontName": "HelveticaNeueLTPro-Lt",
+								"fontColor": {
+									"r": 255,
+									"g": 255,
+									"b": 255,
+									"opacity": 100,
+									"hex": "#ffffff"
+								},
+								"fontSize": 34
+							},
+							"preview": "preview/song_title"
+						},
+						{
+							"name": "song_time",
+							"type": 4,
+							"x": 129,
+							"y": 966,
+							"width": 154,
+							"height": 29,
+							"textStyle": {
+								"fontName": "HelveticaNeueLTPro-Lt",
+								"fontColor": {
+									"r": 139.997559785843,
+									"g": 139.997559785843,
+									"b": 139.997559785843,
+									"opacity": 100,
+									"hex": "#8b8b8b"
+								},
+								"fontSize": 24
+							},
+							"preview": "preview/song_time"
+						},
+						{
+							"name": "order",
+							"type": 4,
+							"x": 31,
+							"y": 916,
+							"width": 80,
+							"height": 80,
+							"textStyle": {
+								"fontName": "HelveticaNeueLTPro-Th",
+								"fontColor": {
+									"r": 199.996492266655,
+									"g": 199.996492266655,
+									"b": 199.996492266655,
+									"opacity": 100,
+									"hex": "#c7c7c7"
+								},
+								"fontSize": 50
+							},
+							"preview": "preview/order"
+						}
+					]
+				},
+				{
+					"name": "list_1",
+					"type": 3,
+					"x": 0,
+					"y": 766,
+					"width": 640,
+					"height": 120,
+					"backgroundColor": {
+						"defaultColor": {
+							"r": 39.9993896484375,
+							"g": 39.9993896484375,
+							"b": 39.9993896484375,
+							"opacity": 100,
+							"hex": "#272727"
+						}
+					},
+					"preview": "preview/list_1",
+					"layers": [
+						{
+							"name": "song_title",
+							"type": 4,
+							"x": 130,
+							"y": 796,
+							"width": 480,
+							"height": 40,
+							"textStyle": {
+								"fontName": "HelveticaNeueLTPro-Lt",
+								"fontColor": {
+									"r": 255,
+									"g": 255,
+									"b": 255,
+									"opacity": 100,
+									"hex": "#ffffff"
+								},
+								"fontSize": 34
+							},
+							"preview": "preview/song_title"
+						},
+						{
+							"name": "song_time",
+							"type": 4,
+							"x": 130,
+							"y": 846,
+							"width": 157,
+							"height": 29,
+							"textStyle": {
+								"fontName": "HelveticaNeueLTPro-Lt",
+								"fontColor": {
+									"r": 139.997559785843,
+									"g": 139.997559785843,
+									"b": 139.997559785843,
+									"opacity": 100,
+									"hex": "#8b8b8b"
+								},
+								"fontSize": 24
+							},
+							"preview": "preview/song_time"
+						},
+						{
+							"name": "artist_thumb_small_default",
+							"type": 5,
+							"x": 30,
+							"y": 796,
+							"width": 80,
+							"height": 80,
+							"preview": "preview/artist_thumb_small_default",
+							"image": "artist_thumb_small_default_n.png"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "background",
+			"type": 3,
+			"x": 0,
+			"y": 0,
+			"width": 640,
+			"height": 1136,
+			"backgroundColor": {
+				"defaultColor": {
+					"r": 39.9993896484375,
+					"g": 39.9993896484375,
+					"b": 39.9993896484375,
+					"opacity": 100,
+					"hex": "#272727"
+				}
+			},
+			"preview": "preview/background"
+		}
+	]
+}
